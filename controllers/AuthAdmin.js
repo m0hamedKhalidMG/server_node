@@ -1,7 +1,7 @@
 import TokenModel from "../models/Token.js";
     import UserModel from "../models/User.js";
     
-export async function checkAdmin(req, res, next) {
+export async function Authadmin(req, res, next) {
     
       const token = req.cookies.session;
       if (!token) {
