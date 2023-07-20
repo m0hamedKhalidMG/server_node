@@ -1,5 +1,5 @@
 import TokenModel from "../models/Token.js";
-    import UserModel from "../models/User.js";
+import UserModel from "../models/User.js";
     
 export async function Authadmin(req, res, next) {
     

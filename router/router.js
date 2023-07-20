@@ -1,8 +1,7 @@
 import { Router } from "express";
-import *as controlle from '../controllers/authlogin.js'
 import {checkAuthentication}  from '../controllers/authlogin.js' ;
 import { getUsers, postUser, getProfilePage, login,logout }  from'../controllers/userController.js' ;
-import { Authadmin } from "../controllers/Authadmin.js";
+import { Authadmin } from "../controllers/authaadmin.js";
 import *as controller from '../controllers/controllers.js'
 
 const router=Router();
