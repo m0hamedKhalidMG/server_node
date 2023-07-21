@@ -20,7 +20,7 @@ config()
 app.use(cookieParser());
 app.use(cors ({
 
-    origin:["https://effortless-cucurucho-b0c015.netlify.app"],
+    
     credentials: true
 }) );
 app.use(
@@ -31,7 +31,6 @@ app.use(
     })
   );
   app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', 'https://effortless-cucurucho-b0c015.netlify.app');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
     res.setHeader('Access-Control-Allow-Credentials', 'true');
