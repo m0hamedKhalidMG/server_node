@@ -13,7 +13,7 @@ export async function getqestions(req, res) {
       match: { title: title,active:true },
     });
     const filteredQ = q.filter((doc) => doc.cover !== null);
-
+console.log(filteredQ)
     const options = {
       timeZone: "Europe/Bucharest",
       weekday: "short",
@@ -41,7 +41,8 @@ export async function getqestions(req, res) {
       minute: "2-digit",
       second: "2-digit",
     });
-    
+      console.log(localTime);
+
     
     const [dateS, timeS] = filteredQ[0].cover.starttime.split("&");
     console.log(date);
