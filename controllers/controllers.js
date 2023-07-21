@@ -50,7 +50,7 @@ console.log(filteredQ)
     console.log(localTime);
     console.log(timeS);
     const [hours1, minutes1, secondswithpm ] = localTime.split(":");
-    const [seconds1 ,localPeriod] =  secondswithpm.split("\u202f");
+    const [seconds1 ,localPeriod] =  secondswithpm.split(" ");
 console.log(localPeriod)
     const [hours2, minutes2, second2swithpm] = timeS.split(":");
     const [seconds2 ,localPeriod2] =  second2swithpm.split(" ");
