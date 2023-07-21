@@ -20,7 +20,7 @@ config()
 app.use(cookieParser());
 app.use(cors ({
 
-    origin: 'https://jocular-paletas-621d69.netlify.app/',
+    origin:["https://jocular-paletas-621d69.netlify.app"],
     credentials: true
 }) );
 app.use(
@@ -31,7 +31,7 @@ app.use(
     })
   );
   app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+    res.setHeader('Access-Control-Allow-Origin', 'https://jocular-paletas-621d69.netlify.app');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
     res.setHeader('Access-Control-Allow-Credentials', 'true');
