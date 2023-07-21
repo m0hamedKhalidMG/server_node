@@ -106,8 +106,9 @@ console.log(localPeriod)
       second: "2-digit",
     });
     
-    
-      res.json({ filteredQ,minute, sec});
+ console.log(date);
+    console.log(localTime);
+ res.json({ filteredQ,minute, sec});
     //} else {
     ///  res.json({ error });
    // }
