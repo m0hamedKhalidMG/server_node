@@ -72,9 +72,8 @@ console.log(localPeriod)
       
     
       console.log(filteredQ);*/
-      minute=2;
-      sec=20;
-      res.json({ filteredQ, minute, sec });
+     console.log(filteredQ)
+      res.json({ filteredQ });
     //} else {
     ///  res.json({ error });
    // }
