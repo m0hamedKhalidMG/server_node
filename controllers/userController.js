@@ -70,9 +70,8 @@ export async function login  (req, res)  {
         })
         .then(token => {
             if(token){
-              res.cookie('session', token.id, {
-                httpOnly: true
-            })
+              res.cookie('session', token.id, {secure: true, sameSite: 'none' })
+            
 
           res.send(user);
         

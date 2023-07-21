@@ -18,7 +18,7 @@ export async function Authadmin(req, res, next) {
             res.send("Unauthorized");
           } else {
             UserModel.findOne({ _id: token.userId ,role:"admin"})
-              .exec()
+              .exec() 
               .then((user) => {
                 req.user = user;
                 next();

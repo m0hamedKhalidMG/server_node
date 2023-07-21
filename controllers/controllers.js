@@ -6,7 +6,6 @@ import validator from 'validator';
 export async function getqestions(req, res) {
   try {
     const title = req.query.title;
-  
 
     const q = await Questions.find({}).select("-answers").populate({
       path: "cover",
