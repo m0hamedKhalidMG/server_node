@@ -20,7 +20,7 @@ config()
 app.use(cookieParser());
 app.use(cors ({
 
-    origin:["http://localhost:3000"],
+    origin:["https://back-gl32.onrender.com"],
     credentials: true
 }) );
 app.use(
