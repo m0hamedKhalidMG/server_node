@@ -6,7 +6,7 @@ import *as controller from '../controllers/controllers.js'
 
 const router=Router();
 router.route('/questions')
-.get(checkAuthentication,controller.getqestions)
+.get(controller.getqestions)
 .post(Authadmin,controller.insertqestions)
 .put(Authadmin,controller.updatequestion)
 
