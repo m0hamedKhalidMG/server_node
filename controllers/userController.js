@@ -71,8 +71,8 @@ export async function login  (req, res)  {
         .then(token => {
             if(token){
               res.cookie('session', token.id, {
-                httpOnly: true
-            })
+  sameSite: 'none',
+    secure: true,            })
 
           res.send(user);
         
