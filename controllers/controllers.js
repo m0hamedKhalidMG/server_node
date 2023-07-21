@@ -72,8 +72,13 @@ console.log(localPeriod)
       
     
       console.log(filteredQ);*/
-     console.log(filteredQ)
-      res.json({ filteredQ });
+     const timedown = 305 - 10;
+
+      var sec = timedown % 60;
+      var minute = parseInt(timedown / 60);
+
+      console.log(filteredQ)
+      res.json({ filteredQ,minute, sec});
     //} else {
     ///  res.json({ error });
    // }
