@@ -11,6 +11,8 @@ export async function getqestions(req, res) {
       path: "cover",
       match: { title: title,active:true },
     });
+console.log(filteredQ)
+  
     const filteredQ = q.filter((doc) => doc.cover !== null);
 
     const options = {
