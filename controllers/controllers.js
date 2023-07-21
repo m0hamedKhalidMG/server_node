@@ -11,8 +11,6 @@ export async function getqestions(req, res) {
       path: "cover",
       match: { title: title,active:true },
     });
-console.log(filteredQ)
-  
     const filteredQ = q.filter((doc) => doc.cover !== null);
 
     const options = {
@@ -44,35 +42,8 @@ console.log(filteredQ)
     });
     
     
-    const [dateS, timeS] = filteredQ[0].cover.starttime.split("&");
-    console.log(date);
-    console.log(dateS);
-    console.log(localTime);
-    console.log(timeS);
-    const [hours1, minutes1, secondswithpm ] = localTime.split(":");
-    const [seconds1 ,localPeriod] =  secondswithpm.split("\u202f");
-console.log(localPeriod)
-    const [hours2, minutes2, second2swithpm] = timeS.split(":");
-    const [seconds2 ,localPeriod2] =  second2swithpm.split(" ");
-    const totalSeconds1 =
-      parseInt(hours1) * 3600 + parseInt(minutes1) * 60 + parseInt(seconds1);
-    const totalSeconds2 =
-      parseInt(hours2) * 3600 + parseInt(minutes2) * 60 + parseInt(seconds2);
-    const differenceInSeconds = totalSeconds1 - totalSeconds2;
-    console.log(differenceInSeconds + "s");
-    const due = filteredQ[0].cover.duration * 60;
-    const timedown = due - differenceInSeconds;
-    var minute = parseInt(timedown / 60);
-    var sec = timedown % 60;
-    if (minute < 0) {
-      minute = 0;
-      sec = 0;
-    }
- //   if (dateS <= date && timeS <= localTimesec>0) {
-      console.log(minute + ":" + sec);
-
-      
-      
+    var minute=3;
+    var sec=30;
       console.log(filteredQ);
       res.json({ filteredQ, minute, sec });
    /* } else {
