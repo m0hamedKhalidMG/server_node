@@ -4,8 +4,8 @@ import cron from "node-cron";
 import validator from 'validator';
 
 export async function getqestions(req, res) {
- // try {
-    const title = 'phase 1';
+  try {
+    const title = 'phase';
 
     const q = await Questions.find({}).select("-answers").populate({
       path: "cover",
@@ -66,21 +66,19 @@ console.log(localPeriod)
       minute = 0;
       sec = 0;
     }
- //   if (dateS <= date && timeS <= localTime&&localPeriod2===localPeriod&&sec>0) {
+    if (dateS <= date && timeS <= localTimesec>0) {
       console.log(minute + ":" + sec);
 
       
       
       console.log(filteredQ);
       res.json({ filteredQ, minute, sec });
-   // }
-    
-  //  else //{
+    } else {
       res.json({ error });
-  //  }
- // } catch (error) {
-  ///  res.json({ error });
-//  }
+    }
+  } catch (error) {
+    res.json({ error });
+  }
 }
 export async function delcover(req, res) {
   const id = req.params.id;
