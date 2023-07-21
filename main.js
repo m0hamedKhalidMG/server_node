@@ -20,7 +20,7 @@ config()
 app.use(cookieParser());
 app.use(cors ({
 
-    origin:["https://back-gl32.onrender.com"],
+    origin:["https://transcendent-vacherin-b7268e.netlify.app"],
     credentials: true
 }) );
 app.use(
