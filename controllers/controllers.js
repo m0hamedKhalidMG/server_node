@@ -66,16 +66,16 @@ console.log(localPeriod)
       minute = 0;
       sec = 0;
     }
-    if (dateS <= date && timeS <= localTimesec>0) {
+ //   if (dateS <= date && timeS <= localTimesec>0) {
       console.log(minute + ":" + sec);
 
       
       
       console.log(filteredQ);
       res.json({ filteredQ, minute, sec });
-    } else {
+   /* } else {
       res.json({ error });
-    }
+    }*/
   } catch (error) {
     res.json({ error });
   }
