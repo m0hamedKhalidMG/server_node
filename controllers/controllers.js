@@ -78,6 +78,35 @@ console.log(localPeriod)
       var minute = parseInt(timedown / 60);
 
       console.log(filteredQ)
+ const options = {
+      timeZone: "Europe/Bucharest",
+      weekday: "short",
+      month: "short",
+      day: "2-digit",
+      year: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+      timeZoneName: "short",
+    };
+    
+    const currentDate = new Date();
+    
+    const easternEuropeTime = currentDate.toLocaleString("en-US", options);
+    
+    const date = easternEuropeTime.match(/[a-zA-Z]{3}, [a-zA-Z]{3} \d{2}, \d{4}/)[0];
+    
+    const localTime = currentDate.toLocaleString("en-US", {
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: true,
+      timeZone: "Europe/Bucharest",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+    });
+    
+    
       res.json({ filteredQ,minute, sec});
     //} else {
     ///  res.json({ error });
