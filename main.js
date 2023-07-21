@@ -20,7 +20,7 @@ config()
 app.use(cookieParser());
 app.use(cors ({
 
-    origin: 'https://transcendent-vacherin-b7268e.netlify.app',
+    origin: 'https://jocular-paletas-621d69.netlify.app/',
     credentials: true
 }) );
 app.use(
