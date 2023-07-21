@@ -11,9 +11,9 @@ export async function getqestions(req, res) {
       path: "cover",
       match: { title: title,active:true },
     });
-  const filteredQ = q.filter((doc) => doc.cover !== null);
+    const filteredQ = q.filter((doc) => doc.cover !== null);
 
-  /*  const options = {
+    const options = {
       timeZone: "Europe/Bucharest",
       weekday: "short",
       month: "short",
@@ -66,57 +66,21 @@ console.log(localPeriod)
       minute = 0;
       sec = 0;
     }
-    if (dateS <= date && timeS <= localTime&&localPeriod2===localPeriod&&sec>0) {
+ //   if (dateS <= date && timeS <= localTime&&localPeriod2===localPeriod&&sec>0) {
       console.log(minute + ":" + sec);
 
       
-    
-      console.log(filteredQ);*/
-     const timedown = 305 - 10;
-
-      var sec = timedown % 60;
-      var minute = parseInt(timedown / 60);
-
-      console.log(filteredQ)
- const options = {
-      timeZone: "Europe/Bucharest",
-      weekday: "short",
-      month: "short",
-      day: "2-digit",
-      year: "numeric",
-      hour: "2-digit",
-      minute: "2-digit",
-      second: "2-digit",
-      timeZoneName: "short",
-    };
-    
-    const currentDate = new Date();
-    
-    const easternEuropeTime = currentDate.toLocaleString("en-US", options);
-    
-    const date = easternEuropeTime.match(/[a-zA-Z]{3}, [a-zA-Z]{3} \d{2}, \d{4}/)[0];
-    
-    const localTime = currentDate.toLocaleString("en-US", {
-      hour: "2-digit",
-      minute: "2-digit",
-      hour12: true,
-      timeZone: "Europe/Bucharest",
-      hour: "2-digit",
-      minute: "2-digit",
-      second: "2-digit",
-    });
-    
- console.log(date);
-    console.log(localTime);
- res.json({ filteredQ,minute, sec});
-    //} else {
-    ///  res.json({ error });
+      
+      console.log(filteredQ);
+      res.json({ filteredQ, minute, sec });
    // }
+    
+  //  else //{
+      res.json({ error });
+  //  }
  // } catch (error) {
-  //  res.json({ error });
- // }
-   // }
-  
+  ///  res.json({ error });
+//  }
 }
 export async function delcover(req, res) {
   const id = req.params.id;
