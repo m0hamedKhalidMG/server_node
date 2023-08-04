@@ -10,17 +10,28 @@ const corsOptions = {
   Credential: 'true',
   
 };
+import path from 'path';
+import { fileURLToPath } from 'url'; 
 
-const app =express()
+const app = express();
+const __filename = fileURLToPath(import.meta.url); 
+const __dirname = path.dirname(__filename); 
+
+app.set('views', path.join(__dirname, 'views'));
+app.use(express.static(path.join(__dirname, 'public')))
+app.set('view engine', 'ejs');
+
 
 app.use(morgan('tiny'))
 
 app.use(express.json())
+app.use(express.urlencoded({ extended: false }));
+
 config()
 app.use(cookieParser());
 app.use(cors ({
 
-    origin:["https://lambent-granita-4dcead.netlify.app"],
+    origin:["http://localhost:3000"],
     credentials: true
 }) );
 app.use(
@@ -31,7 +42,7 @@ app.use(
     })
   );
   app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', 'https://lambent-granita-4dcead.netlify.app');
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
     res.setHeader('Access-Control-Allow-Credentials', 'true');

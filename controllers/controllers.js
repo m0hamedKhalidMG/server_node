@@ -5,7 +5,7 @@ import validator from 'validator';
 
 export async function getqestions(req, res) {
   try {
-    const title = req.query.title;
+    const title = req.params.title;
 
     const q = await Questions.find({}).select("-answers").populate({
       path: "cover",
@@ -48,7 +48,7 @@ export async function getqestions(req, res) {
     console.log(localTime);
     console.log(timeS);
     const [hours1, minutes1, secondswithpm ] = localTime.split(":");
-    const [seconds1 ,localPeriod] =  secondswithpm.split("\u202f");
+    const [seconds1 ,localPeriod] =  secondswithpm.split(" ");
 console.log(localPeriod)
     const [hours2, minutes2, second2swithpm] = timeS.split(":");
     const [seconds2 ,localPeriod2] =  second2swithpm.split(" ");
@@ -237,9 +237,9 @@ export async function getcover(req,  res) {
   }
 } 
 export async function getqestionsBYID(req, res) {
+
   try {
     const id = req.params.id;
-
     const q = await Questions.findOne({ cover: id });
     if (q) {
       console.log(q);

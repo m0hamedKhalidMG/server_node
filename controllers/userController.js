@@ -22,15 +22,20 @@ res.send(data)
 } 
 export async function postUser (req, res)  {
   //await UserModel.deleteMany()
-  const user = new UserModel(req.body);
-  console.log(user)
+  const user=req.body;
+  const {confirmPassword}=user;
+  delete user['confirmPassword'];
+  console.log(confirmPassword)
+
+ const saving_user = new UserModel(user);
+  console.log(saving_user)
   if (!validator.isEmail(user.Email)) {
     return res.status(400).json({ error: 'Invalid email format'   });
   }
-  if (user.password !== user.confirmPassword) {
+  if (saving_user.password !== confirmPassword) {
     return res.status(400).json({error:  'Passwords do not match' });
   }
-  user.save()
+  saving_user.save()
   .then(doc => {
     console.log(doc)
     return res.status(200).json({ message: 'Registration successful' });
@@ -51,7 +56,6 @@ export async function getProfilePage (req, res)  {
 export async function login  (req, res)  {
   const { Email, password } = req.body;
   
-  console.log(password)
   UserModel.findOne({ Email })
   .exec()
   .then(user => {
@@ -107,4 +111,45 @@ export async function logout(req, res) {
     });
 
   }
- 
+ export async function user_update (req,res){
+  const id = req.params.id;
+  const newObject=req.body;
+  console.log(newObject)
+  UserModel.findByIdAndUpdate(id, newObject, { new: true })
+  .then((Updateduser) => {
+    console.log("Updateduser:", Updateduser);
+    res.json({ msg: "Data Saved Successfully...!" });
+  })
+  .catch((error) => {
+    res.json({ msg: "Error...!" });
+
+    console.error("Error Updateduser:", error);
+  });
+ }
+ export async function user_deleted(req, res) {
+  const id = req.params.id;
+
+  UserModel.findByIdAndDelete(id)
+    .then((deluser) => {
+      if (!deluser) {
+        return res.status(404).json({ error: "user not found" });
+      } else {
+        Questions.findOneAndDelete({ UserModel: id }).then((deleted) => {
+          console.log(deleted);
+          if (deleted)
+            return res.json({
+              message: "user deleted successfully ",
+              deluser,
+            });
+          else
+            return res.json({
+              message: "user deleted successfully ",
+              deluser,
+            });
+        });
+      }
+    })
+    .catch((error) => {
+      return res.json({ message: "error ", error });
+    });
+}

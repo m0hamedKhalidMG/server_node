@@ -4,7 +4,6 @@ const User = new mongoose.Schema({
   FullName: { type: String, required: true, max: 100 },
   Email: { type: String, required: true  },
   password: { type: String, required: true, min: 8, max: 15 },
-  confirmPassword:{ type: String, required: true, min: 8, max: 15 },
   PhoneNumber: { type: String, required: true, min: 11, max: 15 },
   Group: { type: String, required: true },
   StreetAddress: { type: String, required: true },
