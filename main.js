@@ -31,7 +31,7 @@ config()
 app.use(cookieParser());
 app.use(cors ({
 
-    origin:["https://test-5dujk0s80-m0hamedkhalidmg.vercel.app"],
+    origin:["https://test-beta-coral.vercel.app"],
     credentials: true
 }) );
 app.use(
@@ -42,7 +42,7 @@ app.use(
     })
   );
   app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', 'https://test-5dujk0s80-m0hamedkhalidmg.vercel.app');
+    res.setHeader('Access-Control-Allow-Origin', 'https://test-beta-coral.vercel.app');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
     res.setHeader('Access-Control-Allow-Credentials', 'true');
